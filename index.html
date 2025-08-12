@@ -8,7 +8,6 @@
   <meta name="CocoaVersion" content="2575.7">
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
     span.s1 {font-kerning: none}
   </style>
 </head>
@@ -16,38 +15,20 @@
 <p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
 <p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
 <p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Open App&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>window.onload = function() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Get query params from URL</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const urlParams = new URLSearchParams(window.location.search);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const articleId = urlParams.get("article_id");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const editorId = urlParams.get("editor_id");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Base Adjust deep link</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let deepLink = "https://familienmomente.go.link";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Add params</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (articleId) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>deepLink += `/article_id=${articleId}?adj_t=1ppx0jqv`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>} else if (editorId) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>deepLink += `/editor_id=${editorId}?adj_t=1ppx0jqv`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Fallback to Kaufland website if deep link fails</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const fallback = "https://filiale.kaufland.de/familienmomente.html";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>deepLink += `&amp;adj_fallback=${encodeURIComponent(fallback)}`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>deepLink += `&amp;adj_redirect_macos=${encodeURIComponent(fallback)}`;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Redirect</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>window.location.href = deepLink;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Redirecting...&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;meta http-equiv="refresh" content="0; url=https://familienmomente.go.link/?article_id=00044377&amp;adj_t=1ppx0jqv"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>(function() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>// JavaScript fallback if meta-refresh fails</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>var url = "https://familienmomente.go.link/?article_id=00044377&amp;adj_t=1ppx0jqv";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>window.location.replace(url);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>})();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/head&gt;</span></p>
 <p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Opening app...&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;p&gt;Redirecting to app… If you are not redirected, &lt;a href="https://familienmomente.go.link/?article_id=00044377&amp;adj_t=1ppx0jqv"&gt;click here&lt;/a&gt;.&lt;/p&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/body&gt;</span></p>
 <p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
