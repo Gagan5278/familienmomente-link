@@ -4,28 +4,37 @@
   <meta charset="UTF-8">
   <title>Open Familienmomente</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { font-family: sans-serif; text-align: center; padding: 50px; }
-    button { font-size: 18px; padding: 12px 20px; border-radius: 8px; background: #007aff; color: white; border: none; }
-  </style>
+  <script>
+    window.onload = function () {
+      // ✅ Custom app scheme (your app must handle this in Info.plist -> URL Schemes)
+      var appLink = "familienmomente://article/00044377";
+
+      // ✅ Real App Store link (replace with your app’s ID)
+      var storeLink = "https://apps.apple.com/de/app/familienmomente/id123456789";
+
+      // Try opening app
+      window.location = appLink;
+
+      // If app not installed → fallback to App Store after 2s
+      setTimeout(function () {
+        window.location = storeLink;
+      }, 2000);
+    }
+  </script>
 </head>
 <body>
-  <h2>Open Familienmomente</h2>
-  <p>Tap the button to continue</p>
-  <button onclick="openApp()">Open App</button>
-  <script>
-    function openApp() {
-      // Try custom scheme first
-      const params = new URLSearchParams(window.location.search);
-      const articleId = params.get('article_id');
-      const url = `familienmomente://article/${articleId}`;
-      window.location.href = url;
+  <p>📲 Opening Familienmomente App…</p>
+  <p>If nothing happens, <a id="manual" href="#">tap here</a>.</p>
 
-      // Fallback after 1s → Adjust link
-      setTimeout(() => {
-        window.location.href = `https://familienmomente.go.link/?article_id=${articleId}&adj_t=1ppx0jqv`;
-      }, 1000);
-    }
+  <script>
+    // Allow manual click fallback too
+    document.getElementById("manual").onclick = function (e) {
+      e.preventDefault();
+      window.location = "familienmomente://article/00044377";
+      setTimeout(function () {
+        window.location = "https://apps.apple.com/de/app/familienmomente/id123456789";
+      }, 2000);
+    };
   </script>
 </body>
 </html>
