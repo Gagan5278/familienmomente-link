@@ -2,31 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting…</title>
+  <title>Open Familienmomente</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    (function() {
-      // Get query parameters
-      const params = new URLSearchParams(window.location.search);
-      const articleId = params.get('article_id');  // FIXED
-      const editorId = params.get('editor_id');    // FIXED
-
-      // Build Adjust deep link or fallback
-      let targetUrl;
-      if (articleId) {
-        targetUrl = `https://familienmomente.go.link/?article_id=${articleId}&adj_t=1ppx0jqv`;
-      } else if (editorId) {
-        targetUrl = `https://familienmomente.go.link/?editor_id=${editorId}&adj_t=1ppx0jqv`;
-      } else {
-        targetUrl = 'https://familienmomente.go.link';
-      }
-
-      // Redirect
-      window.location.replace(targetUrl);
-    })();
-  </script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; }
+    button { font-size: 18px; padding: 12px 20px; border-radius: 8px; background: #007aff; color: white; border: none; }
+  </style>
 </head>
 <body>
-  <p>Opening app…</p>
+  <h2>Open Familienmomente</h2>
+  <p>Tap the button to continue</p>
+  <button onclick="openApp()">Open App</button>
+  <script>
+    function openApp() {
+      // Try custom scheme first
+      const params = new URLSearchParams(window.location.search);
+      const articleId = params.get('article_id');
+      const url = `familienmomente://article/${articleId}`;
+      window.location.href = url;
+
+      // Fallback after 1s → Adjust link
+      setTimeout(() => {
+        window.location.href = `https://familienmomente.go.link/?article_id=${articleId}&adj_t=1ppx0jqv`;
+      }, 1000);
+    }
+  </script>
 </body>
 </html>
