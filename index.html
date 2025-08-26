@@ -8,20 +8,20 @@
     (function() {
       // Get query parameters
       const params = new URLSearchParams(window.location.search);
-      const articleId = params.get('articleId');
-      const editorId = params.get('editorId');
+      const articleId = params.get('article_id');  // FIXED
+      const editorId = params.get('editor_id');    // FIXED
 
-      // Build the Adjust deep link or fallback web URL
+      // Build Adjust deep link or fallback
       let targetUrl;
       if (articleId) {
-        targetUrl = `familienmomente.go.link://article/${articleId}`;
+        targetUrl = `https://familienmomente.go.link/?article_id=${articleId}&adj_t=1ppx0jqv`;
       } else if (editorId) {
-        targetUrl = `familienmomente.go.link://editor/${editorId}`;
+        targetUrl = `https://familienmomente.go.link/?editor_id=${editorId}&adj_t=1ppx0jqv`;
       } else {
-        targetUrl = 'https://example.com'; // fallback URL
+        targetUrl = 'https://familienmomente.go.link';
       }
 
-      // Redirect after a short delay
+      // Redirect
       window.location.replace(targetUrl);
     })();
   </script>
