@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=https://familienmomente.go.link/?article_id=00044377&adj_t=1ppx0jqv">
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
     (function() {
-      // JavaScript fallback if meta-refresh fails
-      var url = "https://familienmomente.go.link/?article_id=00044377&adj_t=1ppx0jqv";
-      window.location.replace(url);
+      // Get query parameters
+      const params = new URLSearchParams(window.location.search);
+      const articleId = params.get('articleId');
+      const editorId = params.get('editorId');
+
+      // Build the Adjust deep link or fallback web URL
+      let targetUrl;
+      if (articleId) {
+        targetUrl = `myapp://article/${articleId}`;
+      } else if (editorId) {
+        targetUrl = `myapp://editor/${editorId}`;
+      } else {
+        targetUrl = 'https://example.com'; // fallback URL
+      }
+
+      // Redirect after a short delay
+      window.location.replace(targetUrl);
     })();
   </script>
 </head>
 <body>
-  <p>Redirecting to app… If you are not redirected, <a href="https://familienmomente.go.link/?article_id=00044377&adj_t=1ppx0jqv">click here</a>.</p>
+  <p>Opening app…</p>
 </body>
 </html>
